@@ -4,161 +4,107 @@
 
 # ── טלגרם ────────────────────────────────────────────
 telegram:
-  bot_token: "YOUR_BOT_TOKEN_HERE"   # קבל מ-@BotFather
-  chat_id: "YOUR_CHAT_ID_HERE"       # קבל מ-@userinfobot
+  bot_token: "YOUR_BOT_TOKEN_HERE"
+  chat_id: "YOUR_CHAT_ID_HERE"
 
 # ── תדירות סריקה (בדקות) ─────────────────────────────
 interval_minutes: 5
 
 # ════════════════════════════════════════════════════
-#   מניות וקריטריונים
-#   כל rule הוא אופציונלי — מחק אם לא רלוונטי
-# ════════════════════════════════════════════════════
 stocks:
 
   - symbol: NVDA
     rules:
-      # שינוי % ממחיר פתיחה (חיובי = עליה, שלילי = ירידה)
-      price_change_pct: 2.0        # התראה אם עלה/ירד 2% ממחיר פתיחה
-
-      # מחירי יעד
+      price_change_pct: 2.0
       price_targets:
         - price: 210.00
-          direction: above         # above = מעל | below = מתחת
+          direction: above
         - price: 185.00
           direction: below
-
-      # RSI
       rsi:
         period: 14
-        oversold: 30               # RSI מתחת ל-30 = קניה יתרה
-        overbought: 70             # RSI מעל 70 = מכירה יתרה
-
-      # נפח חריג
+        oversold: 30
+        overbought: 70
       volume_spike:
-        multiplier: 3.0            # נפח גבוה פי 3 מהממוצע
-        lookback: 20               # ממוצע על 20 נרות אחרונים
+        multiplier: 3.0
+        lookback: 20
 
-symbol: AMZN
+  - symbol: AMZN
     rules:
-      # שינוי % ממחיר פתיחה (חיובי = עליה, שלילי = ירידה)
-      price_change_pct: 2.0        # התראה אם עלה/ירד 2% ממחיר פתיחה
-
-      # מחירי יעד
+      price_change_pct: 2.0
       price_targets:
         - price: 230.00
-          direction: above         # above = מעל | below = מתחת
+          direction: above
         - price: 200.00
           direction: below
-
-      # RSI
       rsi:
         period: 14
-        oversold: 30               # RSI מתחת ל-30 = קניה יתרה
-        overbought: 70             # RSI מעל 70 = מכירה יתרה
-
-      # נפח חריג
+        oversold: 30
+        overbought: 70
       volume_spike:
-        multiplier: 3.0            # נפח גבוה פי 3 מהממוצע
-        lookback: 20               # ממוצע על 20 נרות אחרונים
+        multiplier: 3.0
+        lookback: 20
 
-symbol: SOFI
+  - symbol: SOFI
     rules:
-      # שינוי % ממחיר פתיחה (חיובי = עליה, שלילי = ירידה)
-      price_change_pct: 5.0        # התראה אם עלה/ירד 2% ממחיר פתיחה
-
-      # מחירי יעד
+      price_change_pct: 5.0
       price_targets:
-        - price: 19.19.00
-          direction: above         # above = מעל | below = מתחת
+        - price: 19.00
+          direction: above
         - price: 15.00
           direction: below
-
-      # RSI
       rsi:
         period: 14
-        oversold: 30               # RSI מתחת ל-30 = קניה יתרה
-        overbought: 70             # RSI מעל 70 = מכירה יתרה
-
-      # נפח חריג
+        oversold: 30
+        overbought: 70
       volume_spike:
-        multiplier: 3.0            # נפח גבוה פי 3 מהממוצע
-        lookback: 20               # ממוצע על 20 נרות אחרונים
+        multiplier: 3.0
+        lookback: 20
 
-symbol: ONDS
+  - symbol: ONDS
     rules:
-      # שינוי % ממחיר פתיחה (חיובי = עליה, שלילי = ירידה)
-      price_change_pct: 9.0        # התראה אם עלה/ירד 2% ממחיר פתיחה
-
-      # מחירי יעד
+      price_change_pct: 9.0
       price_targets:
         - price: 11.70
-          direction: above         # above = מעל | below = מתחת
+          direction: above
         - price: 9.00
           direction: below
-
-      # RSI
       rsi:
         period: 14
-        oversold: 30               # RSI מתחת ל-30 = קניה יתרה
-        overbought: 70             # RSI מעל 70 = מכירה יתרה
-
-      # נפח חריג
+        oversold: 30
+        overbought: 70
       volume_spike:
-        multiplier: 3.0            # נפח גבוה פי 3 מהממוצע
-        lookback: 20               # ממוצע על 20 נרות אחרונים
+        multiplier: 3.0
+        lookback: 20
 
-symbol: IGV
+  - symbol: IGV
     rules:
-      # שינוי % ממחיר פתיחה (חיובי = עליה, שלילי = ירידה)
-      price_change_pct: 2.0        # התראה אם עלה/ירד 2% ממחיר פתיחה
-
-      # מחירי יעד
+      price_change_pct: 2.0
       price_targets:
         - price: 183.00
-          direction: above         # above = מעל | below = מתחת
+          direction: above
         - price: 175.00
           direction: below
-
-      # RSI
       rsi:
         period: 14
-        oversold: 30               # RSI מתחת ל-30 = קניה יתרה
-        overbought: 70             # RSI מעל 70 = מכירה יתרה
-
-      # נפח חריג
+        oversold: 30
+        overbought: 70
       volume_spike:
-        multiplier: 3.0            # נפח גבוה פי 3 מהממוצע
-        lookback: 20               # ממוצע על 20 נרות אחרונים
+        multiplier: 3.0
+        lookback: 20
 
-symbol: TAN
+  - symbol: TAN
     rules:
-      # שינוי % ממחיר פתיחה (חיובי = עליה, שלילי = ירידה)
-      price_change_pct: 2.0        # התראה אם עלה/ירד 2% ממחיר פתיחה
-
-      # מחירי יעד
+      price_change_pct: 2.0
       price_targets:
         - price: 61.00
-          direction: above         # above = מעל | below = מתחת
+          direction: above
         - price: 54.50
           direction: below
-
-      # RSI
       rsi:
         period: 14
-        oversold: 30               # RSI מתחת ל-30 = קניה יתרה
-        overbought: 70             # RSI מעל 70 = מכירה יתרה
-
-      # נפח חריג
+        oversold: 30
+        overbought: 70
       volume_spike:
-        multiplier: 3.0            # נפח גבוה פי 3 מהממוצע
-        lookback: 20               # ממוצע על 20 נרות אחרונים
-
-  # ── הוסף מניות נוספות כאן ──
-  # - symbol: META
-  #   rules:
-  #     price_change_pct: 2.5
-  #     rsi:
-  #       period: 14
-  #       oversold: 30
-  #       overbought: 70
+        multiplier: 3.0
+        lookback: 20
