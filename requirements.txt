@@ -1,6 +1,6 @@
-yfinance
-apscheduler
-python-telegram-bot
-pandas
-pandas-ta
-pyyaml
+yfinance==0.2.54
+apscheduler==3.10.4
+python-telegram-bot==20.7
+pandas==2.2.3
+pandas-ta==0.3.14b0
+pyyaml==6.0.2
