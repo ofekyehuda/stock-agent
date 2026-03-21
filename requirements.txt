@@ -1,0 +1,6 @@
+yfinance
+apscheduler
+python-telegram-bot
+pandas
+pandas-ta
+pyyaml
