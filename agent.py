@@ -16,7 +16,7 @@ from pathlib import Path
 import yaml
 import yfinance as yf
 import pandas as pd
-import pandas_ta as ta
+import ta
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from telegram import Bot
 from telegram.error import TelegramError
@@ -84,7 +84,7 @@ def get_open_price(symbol: str, df: pd.DataFrame) -> float:
 
 def calc_rsi(df: pd.DataFrame, period: int = 14) -> float | None:
     try:
-        rsi = ta.rsi(df["Close"], length=period)
+        rsi = ta.momentum.RSIIndicator(df["Close"], window=period).rsi()
         if rsi is not None and not rsi.empty:
             val = rsi.iloc[-1]
             return float(val) if pd.notna(val) else None
