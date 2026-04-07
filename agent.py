@@ -61,16 +61,19 @@ def _reset_daily():
 
 # ── שליפת נתונים ─────────────────────────────────────────────────────────────
 def fetch_data(symbol: str, period: str = "5d", interval: str = "5m") -> pd.DataFrame | None:
-    try:
-        df = yf.Ticker(symbol).history(period=period, interval=interval)
-        if df.empty:
-            log.warning(f"No data for {symbol}")
-            return None
-        df.index = pd.to_datetime(df.index)
-        return df
-    except Exception as e:
-        log.error(f"fetch_data({symbol}): {e}")
-        return None
+    for attempt in range(3):
+        try:
+            df = yf.Ticker(symbol).history(period=period, interval=interval)
+            if df.empty:
+                log.warning(f"No data for {symbol}")
+                return None
+            df.index = pd.to_datetime(df.index)
+            return df
+        except Exception as e:
+            log.error(f"fetch_data({symbol}) attempt {attempt+1}: {e}")
+            if attempt < 2:
+                time.sleep(20 * (attempt + 1))  # 20s, 40s
+    return None
 
 def get_current_price(df: pd.DataFrame) -> float:
     return float(df["Close"].iloc[-1])
@@ -203,7 +206,7 @@ async def run_scan(bot: Bot, config: dict):
                 await asyncio.sleep(0.5)
         except Exception as e:
             log.error(f"Error on {symbol}: {e}")
-        await asyncio.sleep(20)  # השהייה בין מניות למניעת rate limit
+        await asyncio.sleep(15)  # השהייה בין מניות למניעת rate limit
     log.info("── Scan complete ──")
 
 # ── main ──────────────────────────────────────────────────────────────────────
