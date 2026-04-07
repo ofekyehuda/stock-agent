@@ -206,7 +206,7 @@ async def run_scan(bot: Bot, config: dict):
                 await asyncio.sleep(0.5)
         except Exception as e:
             log.error(f"Error on {symbol}: {e}")
-        await asyncio.sleep(15)  # השהייה בין מניות למניעת rate limit
+        await asyncio.sleep(45)  # השהייה בין מניות למניעת rate limit
     log.info("── Scan complete ──")
 
 # ── main ──────────────────────────────────────────────────────────────────────
